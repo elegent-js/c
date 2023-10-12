@@ -80,6 +80,7 @@ int delete(Node *head, int val)
     }
 
     curr -> prev -> next = curr -> next;
+    free(curr);
     return 0;
 }
 
