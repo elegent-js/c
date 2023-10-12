@@ -85,6 +85,35 @@ int delete(Node *head, int val)
 }
 
 
+/**
+ * 反转链表
+ * 
+ * a -> b -> c -> d
+ * 
+ * reverse to
+ * 
+ * a <- b <- c <- d
+ * 
+ *
+ */
+Node *reverselinklist(Node *head)
+{
+    Node *prev = NULL;
+    Node *curr = head;
+
+    while (curr != NULL) 
+    {
+        Node *next = curr -> next;
+        curr -> next = prev;
+        curr -> prev = next;
+
+        prev = curr;
+        curr = next;
+    }
+
+    return prev;
+}
+
 int main(int argc, char * args[])
 {
     Node *head = NULL;
@@ -107,6 +136,9 @@ int main(int argc, char * args[])
     delete(head, 400);
 
     printlinklist(head);
-    
+
+    Node *reverse = reverselinklist(head);   
+
+    printlinklist(reverse); 
     return 0;
 }
