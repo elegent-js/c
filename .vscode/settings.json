@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "pthread.h": "c",
-        "comm.h": "c"
+        "comm.h": "c",
+        "__node_handle": "c"
     }
 }
