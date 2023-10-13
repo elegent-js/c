@@ -5,7 +5,7 @@
  */
 #include "../../comm.h"
 
-#define ARR_LEN 10000
+#define ARR_LEN 100000
 
 /**
  * 冒泡算法 
