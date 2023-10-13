@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <time.h>
 
 typedef struct node {
     int val;
@@ -33,4 +34,23 @@ void printlinklist(Node *head)
 
     puts("");
 
+}
+
+/**
+ * 随机生成指定长度的数组 
+ */
+int* randarr(int len)
+{
+
+    int *arr = (int *) malloc(sizeof(int) * len);
+
+    // 使用时间作为随机数种子
+    srand(time(NULL));
+
+    for (int i = 0; i < len; i ++)
+    {
+        *(arr + i) = rand() % 100;
+    }
+
+    return arr;
 }
