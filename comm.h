@@ -15,7 +15,7 @@ void printarr(int arr[], int len)
 {
     for (int i = 0; i < len; i ++)
     {
-        printf("arr[%d]: %d ", i, arr[i]);
+        printf("arr[%d]: %d, ", i, arr[i]);
     }
     puts("");
 }
