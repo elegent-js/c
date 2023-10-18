@@ -5,16 +5,53 @@
 
 #include "../../comm.h"
 
-/**
- * 创建树结点 
- */
-TreeNode *createTreeNode()
-{
-    return (TreeNode *) malloc(sizeof(TreeNode));
-}
 
 /**
- * 中序遍历二叉树 
+ * 插入数据至二叉搜索树 
+ * 
+ */
+void insertTreeNode(TreeNode **node, int val)
+{
+    if (*node == NULL)
+    {
+        *node = (TreeNode *)malloc(sizeof(TreeNode));
+        (*node) -> val = val;
+        return;
+    }
+
+    TreeNode *curr = *node;
+
+    while (curr != NULL)
+    {
+        if (val <= curr -> val)
+        {
+            if (curr -> left == NULL)
+            {
+                TreeNode *left = (TreeNode *)malloc(sizeof(TreeNode));
+                left -> val = val;
+                curr -> left = left;
+                return;
+            } else {
+                curr = curr -> left;
+            }
+        } else {
+            if (curr -> right == NULL)
+            {
+                TreeNode *right = (TreeNode *)malloc(sizeof(TreeNode));
+                right -> val = val;
+                curr -> right = right;
+                return;
+            } else {
+                curr = curr -> right;
+            }
+        }
+    }
+
+
+} 
+
+/**
+ * 中序遍历二叉树 （有序输出）
  */
 void printmidtree(TreeNode *node)
 {
@@ -55,34 +92,33 @@ TreeNode *find(TreeNode *binarysearchtree, int val)
 
 int main(int argc, char * argv[])
 {
-    TreeNode *binarytree = createTreeNode();
-    binarytree -> val = 100;
+    TreeNode *binarytree = NULL;
 
-    TreeNode *left = createTreeNode();
-    left -> val = 80;
-    TreeNode *right = createTreeNode();
-    right -> val = 120;
+    insertTreeNode(&binarytree, 20);
+    insertTreeNode(&binarytree, 11);
+    insertTreeNode(&binarytree, 12);
+    insertTreeNode(&binarytree, 13);
+    insertTreeNode(&binarytree, 9);
+    insertTreeNode(&binarytree, 7);
+    insertTreeNode(&binarytree, 4);
+    insertTreeNode(&binarytree, 17);
+    insertTreeNode(&binarytree, 20);
+    insertTreeNode(&binarytree, 25);
+    insertTreeNode(&binarytree, 30);
+    insertTreeNode(&binarytree, 23);
+    insertTreeNode(&binarytree, 15);
+    insertTreeNode(&binarytree, 14);
 
-    binarytree -> left = left;
-    binarytree -> right = right;
-
-    TreeNode *left1 = createTreeNode();
-    left1 -> val = 70;
-    TreeNode *right1 = createTreeNode();
-    right1 -> val = 130;
-
-    left -> left = left1;
-    right -> right = right1;
 
 
     printmidtree(binarytree);    
 
 
-    TreeNode *target = find(binarytree, 111);
+    TreeNode *target = find(binarytree, 15);
 
     if (target == NULL)
     {
-        puts("target 111 not found in binary search tree");
+        puts("target 15 not found in binary search tree");
     } else {
         printf("find %d in binary search tree. ", target -> val);
     }
