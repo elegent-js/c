@@ -2,11 +2,23 @@
 #include <stdlib.h>
 #include <time.h>
 
+/**
+ * 定义链表结点 
+ */
 typedef struct node {
     int val;
     struct node *prev;
     struct node *next;
 } Node;
+
+/**
+ * 定义二叉树结点 
+ */
+typedef struct treenode {
+    int val;
+    struct treenode *left;
+    struct treenode *right;
+} TreeNode;
 
 /**
  * 通用遍历打印数组元素函数 
