@@ -58,3 +58,4 @@ dkms.conf
 
 # 忽略可执行文件
 helloworld
+pointer

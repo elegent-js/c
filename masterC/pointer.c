@@ -3,8 +3,8 @@
 int main() 
 {
     int a = 10;
+    int *p = NULL;
     int b = 20;
-    int *p;
 
     printf("a = %d, addr: %p\n", a, &a);
     printf("b = %d, addr: %p\n", b, &b);
